@@ -71,7 +71,7 @@ const updateImageCard = (indexImg, imageURL) => {
 
 // send request to Hugging Face API to generate images  
 const generateImages = async (model, count, ratio, prompt) => {
- const MODEL_URL = `http://localhost:5000/generate`;
+ const MODEL_URL = `https://text-to-image-generator-6sqh.onrender.com/generate`;
  const{width, height} = getImageDimensions(ratio);
 //  generateBtn.setAttribute("disabled","true");
 
@@ -93,21 +93,6 @@ const generateImages = async (model, count, ratio, prompt) => {
   });
 
 
-      
-    // const response = await fetch(MODEL_URL,
-    // {
-    //   method: "POST",
-    //   headers: {
-    //     "Authorization": `Bearer ${API_KEY}`,
-    //     "Content-Type": "application/json",
-    //     "x-use-cache": "false",
-    //   },
-    //   body: JSON.stringify({
-    //     inputs: prompt,
-    //     parameters: {width,height},
-    //     options: { wait_for_model: true, use_cache: false },
-    //   })
-    // });
 
     if(!response.ok){
         throw new Error((await response.json())?.error || "Failed to generate image");
