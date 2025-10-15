@@ -1,0 +1,432 @@
+/* Importing  Google Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{ 
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+}
+:root {
+  --color-primary: #5C56E1;
+  --color-primary-dark: #5b21b6;
+  --color-accent: #8B5CF6;
+  --color-card: #FFFFFF;
+  --color-input: #F1F1FF;
+  --color-text: #09090E;
+  --color-placeholder: #5C5A87;
+  --color-border: #7878ca;
+  --color-gradient: linear-gradient(135deg, #5C56E1, #8B5CF6);
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 15px;
+    color:var(--color-text);
+    background: linear-gradient(#E9E9FF,#C8C7FF);
+}
+
+
+body.dark-theme {
+  --color-card: #1E293B;
+  --color-input: #141B2D;
+  --color-text: #F3F4F6;
+  --color-placeholder: #A3B6DC;
+  --color-border: #334155;
+
+  background: var(--color-card);
+  background-image: radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 35%), radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 35%), radial-gradient(circle at 50% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 40%);
+} 
+
+body.dark-theme .container{
+    border:1px solid var(--color-border);
+}
+
+.container{
+    background: var(--color-card);
+    padding: 32px;
+    border-radius: 23px;
+    position: relative; 
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(10, 8, 8, 0.1);
+    width: 900px;
+}
+.container::before{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--color-gradient);
+    border-radius: 2px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .logo-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header .logo-wrapper .logo{
+    height: 55px;
+    width: 55px;
+    display: flex;
+    border-radius: 15px;
+    color: #fff;
+    font-size:1.35rem;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-gradient)
+}
+
+.header .logo-wrapper h1{
+    font-size: 1.9rem;
+    font-weight: 700;
+}
+.header .theme-toggle{
+    height:43px;
+    width: 43px;
+    border-radius : 50%;
+    font-size: 1.05rem;
+    color: var(--color-placeholder);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-input);
+    cursor: pointer;
+    border: 1px solid var(--color-border);
+    transition:all 0.3s ease;
+}
+.header .theme-toggle:hover{
+    color: var(--color-prinmary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+
+.main-container{
+    margin: 35px 0 5px 0;
+}
+
+.main-container .prompt-container{
+    width: 100%;
+    position:relative;
+    margin-bottom: 20px;
+}
+
+.prompt-container{
+    border: none;
+}
+.prompt-container .prompt-input{
+    width: 100%;
+    padding: 15px 20px;
+    line-height: 1.6;
+    min-height: 120px;
+    border-radius: 15px;
+    font-size: 1.05rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-input);
+    color: var(--color-text);
+    resize: vertical;
+    outline: none;
+    transition:all 0.3s ease;
+}
+
+.prompt-container .prompt-input::placeholder{
+    color: var(--color-placeholder);
+}
+.prompt-container .prompt-input:focus{
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
+}
+
+.prompt-container .prompt-btn{
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    background: var(--color-gradient);
+    color: #fff;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    opacity: 0.8;
+    cursor: pointer;
+    transition:all 0.3s ease;
+}
+
+.prompt-container .prompt-btn:hover{
+    opacity:1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.main-container .prompt-actions{
+    display: grid;
+    gap: 14px;
+    grid-template-columns:1.2fr 1fr 1.1fr 1fr;
+}
+
+.prompt-actions .select-wrapper{
+    position: relative;
+}
+.prompt-actions .select-wrapper::after{
+   content:"\f078";
+   font-family: 'Font Awesome 6 Free';
+   font-weight: 900;  
+   font-size: 0.9rem;      
+   position:absolute;
+   right:20px;
+   top:50%;
+   padding-left: 7px;
+   pointer-events: none;
+   color: var(--color-placeholder);
+   background: var(--color-input);
+   transform: translate(-50%);
+}
+
+.prompt-actions :where(.custom-select, .generate-btn){
+    outline: none;
+    cursor: pointer;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+    background: var(--color-input);
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+}
+
+.prompt-actions .custom-select{
+    width: 100%;
+    outline: none;
+    border-radius: 10px;
+    height: 100%;
+    appearance: none;
+    color:var(--color-text);
+}
+.prompt-actions .custom-select:is(:focus, :hover){
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+}
+
+.prompt-actions .generate-btn{
+    display:flex;
+    gap:12px;
+    margin-left: auto;
+    font-weight:500;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    border:none;
+    color:#fff;
+    background: var(--color-gradient);
+}
+.prompt-actions .generate-btn:disabled{
+    cursor: not-allowed;
+    opacity: 0.6;
+   pointer-events: none;
+}
+
+.prompt-actions .generate-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px -1px rgba(97, 5, 245, 0.3);
+}
+
+.main-container .gallary-grid:has(.img-card){
+    margin-top: 30px;
+}
+
+.main-container .gallary-grid{
+    display: grid;
+    gap: 15px;
+    margin-top: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.gallary-grid .img-card{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);          
+    aspect-ratio: 1;
+    background:var(--color-input);
+    transition: all 0.5s ease;
+}
+.gallary-grid .img-card:not(.loading, .error):hover{
+   transform: translateY(-5px);
+   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.gallary-grid .img-card .result-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} 
+
+.gallary-grid .img-card:is(.loading, .error) :is(.result-img, .img-overplay){
+    display: none;
+}
+
+.gallary-grid .img-card .img-overplay{
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    bottom:0;
+    right:0;
+    opacity: 0;
+    pointer-events: none;
+    padding: 20px;
+    background:linear-gradient(transparent, rgba(0,0,0,0.8));
+    transition: all 0.3s ease;
+} 
+
+.gallary-grid .img-card:hover .img-overplay{
+    opacity: 1;
+    pointer-events: auto;
+}
+ 
+.gallary-grid .img-card .img-download-btn{
+    height: 45px;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter:5px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    border:none;
+    color:#fff;
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    transition: all;
+}   
+
+.gallary-grid .img-card .download-btn:hover{
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.4);
+}  
+
+.gallary-grid .img-card .status-container{
+    padding:15px;
+    display: none;
+    gap: 13px;
+    flex-direction: column; 
+    align-items: center
+}
+
+.gallary-grid .img-card:where(.loading, .error) .status-container{
+    display: flex;
+}
+
+.gallary-grid .img-card.loading .status-container i, .gallary-grid .img-card.error .spinner  {
+    display: none;
+}
+.gallary-grid .img-card.error .status-container i{
+    font-size: 1.8rem;
+    color: red;
+}
+
+.gallary-grid .img-card.loading .spinner{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border:3px solid var(--color-border);
+    border-top-color: var(--color-primary-dark);
+    animation:Spin 1s linear infinite;
+}
+
+@keyframes Spin{
+    to{
+        transform: rotate(360deg);
+    }
+}
+.gallary-grid .img-card .status-text{
+    color: var(--color-placeholder);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* Responsive Design */
+/* make it ressponsive my copilot */
+
+/* Responsive Design */
+@media (max-width: 770px) {
+  .container {
+    width: 100%;
+    padding: 18px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .header .logo-wrapper h1 {
+    font-size: 1.5rem;
+  }
+
+  .main-container {
+    margin-top: 25px;
+  }
+
+  /* Stack all prompt actions vertically */
+  .main-container .prompt-actions {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .prompt-actions .select-wrapper,
+  .prompt-actions .generate-btn {
+    width: 100%;
+  }
+
+  /* Make button span full width and centered */
+  .prompt-actions .generate-btn {
+    justify-content: center;
+    margin: 5px 0 0 0;
+  }
+
+  /* Make gallery images more compact */
+  .main-container .gallary-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+  }
+
+  .gallary-grid .img-card {
+    border-radius: 12px;
+  }
+
+  /* Adjust textarea size */
+  .prompt-container .prompt-input {
+    min-height: 100px;
+    font-size: 1rem;
+  }
+
+  /* Ensure dice button fits inside small screens */
+  .prompt-container .prompt-btn {
+    height: 40px;
+    width: 40px;
+    bottom: 20px;
+    right: 20px;
+  }
+}

@@ -1,0 +1,12 @@
+node_modules/
+.env
+
+# Node modules for backend
+server/node_modules/
+
+# Environment files
+server/.env
+
+# Optional: if frontend uses build files
+frontend/dist/
+frontend/node_modules/
